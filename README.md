@@ -7,7 +7,7 @@ The objective is to compare the performance between a model optimized through hy
 ## Project Set Up and Installation
 The underlying environment for the execution of the Jupyter notebooks must be Unix. The OS commands used will not run in a Windows environment.  
 
-This project requieres the installation of the following libraries:
+This project requires the installation of the following libraries:
 * Azure Machine Learning SDK for Python  
 * Python 3.6.2  
 * Scikit-learn
@@ -29,7 +29,7 @@ The alternative used, was to execute the Jupyter notebooks in a local environmen
 
 ### Overview
 The dataset selected for the project is the UCI [Estimation of Obesity Levels Data Set](https://archive.ics.uci.edu/ml/datasets/Estimation+of+obesity+levels+based+on+eating+habits+and+physical+condition+).  
-The dataset includes data for the estimation of obesity levels in individuals from the countries of Mexico, Peru, and Colombia, based on their eatin habits and physical condition.  
+The dataset includes data for the estimation of obesity levels in individuals from the countries of Mexico, Peru, and Colombia, based on their eating habits and physical condition.  
 
 "Mexico is one of the most worrying cases. About 73% of the Mexican population is overweight (compared to one-fifth of the population in 1996).  
 Mexico has one of the highest rates of obesity in the OECD. In addition, 34% of obese are morbidly obese - the highest level of obesity.  
@@ -38,13 +38,13 @@ But the greatest tragedy is the growth in child obesity, which has doubled from 
 [The Heavy Burden of Obesity: The Economics of Prevention](https://www.oecd.org/about/secretary-general/heavy-burden-of-obesity-mexico-january-2020.htm).  
 
 The reason why I selected this dataset is because obesity is a serious problem in my home country, Mexico.  
-Despite several efforts made by the government, like increasing taxes in high sugar content beverages and most recently, the labeling of foods containing high calories / sugar / sodium / fat,  the problem persists.  
-Due the pandemic, this problem can become worse, since we must stay home.  Keeping a healthy livestyle during lockdown requires a strong will.  
+Despite several efforts made by the government, like increasing taxes in high sugar content beverages and most recently, the labeling of foods containing high calories / sugar / sodium / fat, the problem persists.  
+Due the pandemic, this problem can become worse, since we must stay home.  Keeping a healthy lifestyle during lockdown requires a strong will.  
 So, I was delighted to find a dataset related to the subject, where eating habits and physical conditions are provided as features, to determine which ones might be the principal cause of obesity levels.  
 
 
 ### Task
-The data contains 17 attributes and 2,111 records. The records are labeled with the class variable NObesity (Obesity Level), that allows classification of the data.  
+The data contains 17 attributes and 2,111 records. The records are labeled with the class variable NObesity (Obesity Level), which allows classification of the data.  
 A detailed explanation of the dataset and the Exploratory Data Analysis tasks performed are included in the [01. Exploratory Data Analysis notebook](notebooks/01. Exploratory Data Analysis.ipynb).  
 
 
@@ -68,14 +68,14 @@ For AutoML the file was uploaded to the workspace blob storage and a tabular dat
 The settings used were:  
 
 * Experiment timeout.  
-This is the maximum amount of time in minutes that all iterations combned can take before the experiment terminates.  
+This is the maximum amount of time in minutes that all iterations combined can take before the experiment terminates.  
 If not specified, the default experiment timeout is 6 days.  
 It was set to 20 minutes, so the experiment would not run for a long time and consume too many resources.  
 
 * Maximum concurrent iterations.  
 This represents the maximum number of iterations that would be executed in parallel.  
 The default value is 1.  
-AmlCompute clusters support one iteration running per node. For multiple AutoML experiment parent runs executed in parallel on a single AmlCompute cluster, the sum of the values for all experimets shoukd be less tha or equal to the maximum number of nodes. Otherwise, runs will be queued until nodes are available.  
+AmlCompute clusters support one iteration running per node. For multiple AutoML experiment parent runs executed in parallel on a single AmlCompute cluster, the sum of the values for all experiments should be less than or equal to the maximum number of nodes. Otherwise, runs will be queued until nodes are available.  
 It was set to 4, since the cluster was configured to have 4 nodes.  
 
 * Primary Metric.  
@@ -100,7 +100,7 @@ It was set to auto, to enable the featurization step, since the dataset is not p
 
 ### Results
 The best model was a *Voting Ensemble* model.  
-For this model there are no configurable parameters, except the timeout. No modificactions were needed, since the were no error messages.  
+For this model there are no configurable parameters, except the timeout. No modifications were needed, since there were no error messages.  
 
 Some ways to improve the performance would be:  
 * Disable the ONNX compatibility to allow the stack ensemble model to perform.  
@@ -185,18 +185,18 @@ The values selected for the pre-test were 5, 10, 50, 100 to test underfitting an
 **Minimum number of samples.**  
 This is the minimum number of samples required to split an internal node.  
 The default value is 2.  
-The values selected for the sampler were 2, 10, 50, 100 to see the effect of the selecting too few an too many samples.  
+The values selected for the sampler were 2, 10, 50, 100 to see the effect of the selecting too few and too many samples.  
 
-**Note:** *random_state* was set to 0, to obtain a deterministic behaviour during fitting.  
+**Note:** *random_state* was set to 0, to obtain a deterministic behavior during fitting.  
 This parameter controls the randomness of the estimator. If set to the default value *None*, the features are randomly permuted at each split. The best found split may vary across different runs.  
 
 
 #### Configuration settings
-The total of runs was set to 20 and the maximum concurrent runs was set to 4, to avoid overcomsumption of resources.  
+The total of runs was set to 20 and the maximum concurrent runs was set to 4, to avoid overconsumption of resources.  
 
 
 ### Results
-The best model was a *Decision Tree* with 10 maximum depth levels and 2 minumum number of samples.  
+The best model was a *Decision Tree* with 10 maximum depth levels and 2 minimum number of samples.  
 
 Some ways to improve the performance would be:  
 * Try ensemble models, like random forests, gradient tree boosting, voting classifier, and stack generalization.  
@@ -205,8 +205,8 @@ The screenshots of the *RunDetails* widget and the best model are as follows:
 ![RunDetails 1](/images/HyperparameterRun1.png)
 ![RunDetails 2](/images/HyperparameterRun2.png)
 ![RunDetails 3](/images/HyperparameterRun3.png)
-![Hyperparameter Best Model 1](../images/HyperparameterRunChildId1.png)
-![Hyperparameter Best Model 2](../images/HyperparameterRunChildId2.png)
+![Hyperparameter Best Model 1](/images/HyperparameterRunChildId1.png)
+![Hyperparameter Best Model 2](/images/HyperparameterRunChildId2.png)
 
 
 ## Model Deployment
