@@ -342,7 +342,6 @@ An example is included in the [AutoML notebook](notebooks/automl.ipynb).
 
 ## Future Improvements
 Some ways to improve the performance of the AutoML model would be:  
-Some ways to improve the performance would be:  
 * Disable the ONNX compatibility to allow the stack ensemble model to perform.  
 * Try different values of the n_cross_validation parameter.  
 
